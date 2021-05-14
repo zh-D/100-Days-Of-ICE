@@ -344,7 +344,7 @@ WebpackOptionsValidationError],
 
 ```javascript
 console.log("args",args);
-console.log("configArr",configArr);
+console.log("configArr",configArr);(configArr = await context.setUp();)
 console.log("webpack",webpack);
 console.log("compiler",compiler);
 
@@ -761,5 +761,37 @@ Server {
   },
   hostname: '0.0.0.0'
 }
+```
+
+### context.constructor
+
+```javascript
+console.log("webpackPath",webpackPath);
+console.log(BUILTIN_CLI_OPTIONS);
+console.log(getBuiltInPlugins(this.userConfig));
+console.log(this.plugins);
+webpackPath webpack
+[
+  { name: 'port', commands: [ 'start' ] },    
+  { name: 'host', commands: [ 'start' ] },    
+  { name: 'disableAsk', commands: [ 'start' ] 
+},
+  { name: 'config', commands: [ 'start', 'build', 'test' ] }
+]
+[ 'build-plugin-react-app', 'build-plugin-ice-mpa' ]
+[
+  {
+    name: 'build-plugin-react-app',
+    pluginPath: 'C:\\Users\\86155\\Desktop\\ice\\examples\\simple\\node_modules\\build-plugin-react-app\\lib\\index.js',
+    fn: [Function],
+    options: undefined
+  },
+  {
+    name: 'build-plugin-ice-mpa',
+    pluginPath: 'C:\\Users\\86155\\Desktop\\ice\\examples\\simple\\node_modules\\build-plugin-ice-mpa\\lib\\index.js',
+    fn: [Function: plugin],
+    options: undefined
+  }
+]
 ```
 
