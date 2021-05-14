@@ -191,8 +191,6 @@ Error: module property was removed from Dependency (use compilation.moduleGraph.
 npm link ../../packages/icejs --force
 ```
 
-使用 --force 覆盖了 node_modules/bin 里面 icejs 命令，要不然执行这个命令会报错，**可是为什么要覆盖呢**？留个坑。
-
 然后，在 packages/icejs 添加
 
 ```javascript
@@ -214,6 +212,35 @@ ERR! CONFIG - C:\Users\86155\Desktop\ice\examples\hello-world\node_modules\mini-
 ```
 
 居然先不是 plugin-fast-refresh 说找不到 webpack，而是 mini-css-extract-plugin 找不到。难道 plugin-fast-refresh 找得到吗？
+
+**开启 webpack5**
+
+```shell
+npm i --save-dev build-plugin-webpack5 webpack
+```
+
+build.json
+
+```diff
+{
+  "plugins": [
+    [
+      "../../packages/plugin-fast-refresh/lib/index.js"
+    ],
++    "build-plugin-webpack5"
+  ],
++  "customWebpack": true
+}
+
+```
+
+npm start
+
+```she
+ERR! Cannot add property htmlWebpackPluginAlterChunks, object is not extensible 
+TypeError: Cannot add property htmlWebpackPluginAlterChunks, object is not extensible
+    at C:\Users\86155\Desktop\ice\examples\hello-world\node_modules\html-webpack-plugin\index.js:59:56
+```
 
 我再去跑一个 example 了。
 
