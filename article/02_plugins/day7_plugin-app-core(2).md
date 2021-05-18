@@ -70,7 +70,7 @@ generator
 +│          ├── index.d.ts
 +│          └── index.js
 +│      └── index.ts
-+│  └── logger
++│  └── request
 +│      ├── types
 +│          ├── base.d.ts
 +│          ├── base.js
